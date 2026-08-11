@@ -12,8 +12,6 @@ load_dotenv()
 app = Flask(__name__)
 app.secret_key = os.getenv("SECRET_KEY")
 
-# Anchored to this file so the save location doesn't depend on the working
-# directory the server was launched from.
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 WINS_FILE = os.path.join(BASE_DIR, "wins.json")
 
