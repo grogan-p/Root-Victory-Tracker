@@ -29,9 +29,8 @@ input, button, select {
     align-items: center;
     gap: 0.75rem 1rem;
 
+    /* margin-top pushes it to the bottom of the flex column */
     margin-top: auto;
-    position: sticky;
-    bottom: 0;
     padding: 1.25rem 1.75rem;
     background-color: #D6BE95;
     border: 2px solid rgb(13, 66, 90);
@@ -122,12 +121,4 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: rgb(20, 90, 122);
-}
-
-/* Pinned to the bottom the form eats too much of a phone screen,
-   so on narrow viewports let it scroll away with the rest of the page. */
-@media (max-width: 600px) {
-    .update {
-        position: static;
-    }
 }
