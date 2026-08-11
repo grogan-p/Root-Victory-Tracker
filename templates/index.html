@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Root Victory Tracker</title>
+    <link href="{{ url_for('static', filename='styles/style.css')}}" rel="stylesheet" />
+</head>
+
+<body>
+    <h1>Root Scoreboard</h1>
+    <ul class="scoreboard">
+        {% for player, victories in wins.items() %}
+        <li>
+            <span class="player">{{ player }}</span>
+            <span class="victories">
+                {% for faction in victories %}
+                <img src="{{ url_for('static', filename='styles/images/' ~ faction.name ~ '.png') }}"
+                     alt="{{ faction.value }}" title="{{ faction.value }}" />
+                {% endfor %}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <form class="update" method="post">
+        <h3>Update winners</h3>
+
+        <div class="field">
+            <label for="winner">Who won?</label>
+            <select name="update-winner" id="winner">
+                <option value="" disabled selected>Select a player</option>
+                {% for player in wins %}
+                <option value="{{ player }}">{{ player }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="faction">Which faction?</label>
+            <select name="update-winner-faction" id="faction">
+                <option value="" disabled selected>Select a faction</option>
+                {% for faction in factions %}
+                <option value="{{ faction.name }}">{{ faction.value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="pwd">Admin Password:</label>
+            <input type="password" id="pwd" name="pwd"/>
+        </div>
+
+        <input type="submit" value="Submit" />
+    </form>
+</body>
+
+</html>

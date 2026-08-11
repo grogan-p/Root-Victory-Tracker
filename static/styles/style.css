@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 2rem;
+    background-color: #DDC7A0;
+    color: rgb(13, 66, 90);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    font-size: 1.25rem;
+}
+
+input, button, select {
+    font: inherit;
+    padding: 0.5rem 0.75rem;
+    border-radius: 8px;
+}
+
+.update {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem 1rem;
+
+    /* margin-top pushes it to the bottom of the flex column,
+       sticky keeps it in view once the scoreboard overflows */
+    margin-top: auto;
+    position: sticky;
+    bottom: 0;
+    padding: 1.25rem 1.75rem;
+    background-color: #D6BE95;
+    border: 2px solid rgb(13, 66, 90);
+    border-radius: 10px;
+}   
+
+.update h3,
+.update input[type="submit"] {
+    grid-column: 1 / -1;
+    justify-self: center;
+}
+
+.field {
+    display: contents;
+}
+
+.field label {
+    justify-self: end;
+}
+
+.scoreboard {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.scoreboard li {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.player {
+    min-width: 8ch;
+    font-size: 1.9rem;
+}
+
+.victories {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.victories img {
+    height: 3rem;
+    width: auto;
+}
+
+
+select,
+input[type="password"] {
+    color: inherit;
+    background-color: #F3E6CE;
+    border: 2px solid rgb(13, 66, 90);
+}
+
+select:hover,
+input[type="password"]:hover {
+    background-color: #FAF3E3;
+}
+
+select:focus-visible,
+input[type="password"]:focus-visible {
+    outline: 3px solid rgb(13, 66, 90);
+    outline-offset: 2px;
+}
+
+select {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 2.25rem;
+    cursor: pointer;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D425A' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.6rem center;
+    background-size: 0.9rem;
+}
+
+input[type="submit"] {
+    background-color: rgb(13, 66, 90);
+    color: #F3E6CE;
+    border: 2px solid rgb(13, 66, 90);
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(20, 90, 122);
+}
