@@ -8,7 +8,8 @@
         "LIZARDS",
         "DUCHY",
         "BATS",
-        "WOODLAND"
+        "WOODLAND",
+        "BATS"
     ],
     "Patrick": [
         "WOODLAND",
@@ -24,8 +25,9 @@
     ],
     "Matthew": [
         "LIZARDS",
-        "RIVERFOLK"
-    ],
+        "RIVERFOLK",
+        "BATS"
+    ],  
     "Harry": [
         "DUCHY"
     ],
