@@ -9,6 +9,27 @@
 </head>
 
 <body>
+
+<div class="sidebar" style="display:none" id="sidebar">
+  <button onclick="close_sidebar()" class="w3-bar-item w3-large">Close&times;</button>
+  <a href="#" class="sidebar-item">Group 1</a>
+  <a href="#" class="sidebar-item">Group 2</a>
+  <a href="#" class="sidebar-item">Create new group</a>
+</div>
+
+<button class="menu-button" onclick="open_sidebar()">☰</button>
+
+<script>
+function open_sidebar() {
+  document.getElementById("sidebar").style.display = "block";
+}
+
+function close_sidebar() {
+  document.getElementById("sidebar").style.display = "none";
+}
+</script>
+
+ <main>
     <h1>Root Scoreboard</h1>
     <ul class="scoreboard">
         {% for player, victories in wins.items() %}
@@ -54,6 +75,7 @@
 
         <input type="submit" value="Submit" />
     </form>
+    </main>
 </body>
 
 </html>

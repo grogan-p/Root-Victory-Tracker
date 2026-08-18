@@ -14,7 +14,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 WINS_FILE = os.path.join(BASE_DIR, "wins.json")
-
+ 
 class Faction(Enum):
     MARQUISE   = "Marquise de Cat"
     EYRIE      = "Eyrie Dynasty"
@@ -60,12 +60,11 @@ def load_wins() -> dict[str, list[Faction]]:
 
     if not os.path.exists(WINS_FILE):
         save_wins(DEFAULT_WINS)
-        return {player: list(victories) for player, victories in DEFAULT_WINS.items()}
 
     with open(WINS_FILE, encoding="utf-8") as file:
         raw = json.load(file)
 
-    return {player: [Faction[name] for name in names] for player, names in raw.items()}
+    return {player: [Faction[name] for name in victories] for player, victories in raw.items()}
 
 
 wins = load_wins()
@@ -75,7 +74,6 @@ wins = load_wins()
 @app.route('/index', methods=["GET", "POST"])
 def index() -> str | Response:
     """Main function"""
-
     
     if request.method == "GET":
         return render_template('index.html', wins=wins, factions=Faction)
