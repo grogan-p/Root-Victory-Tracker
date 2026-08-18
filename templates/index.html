@@ -37,7 +37,7 @@ function change_mode() {
 
     if (spreadsheet.style.display === "none") {
         scoreboard.style.display = "none";
-        spreadsheet.style.display = "flex";
+        spreadsheet.style.display = "block";
         modeButton.textContent = "Scoreboard Mode";
     } else {
         scoreboard.style.display = "flex";
@@ -50,24 +50,26 @@ function change_mode() {
  <main>
     <h1>Root Scoreboard</h1>
 
-    <table class ="spreadsheet" id="spreadsheet" style="display:none;">
-        <tr>
-            <th>Name</th>
-            {% for faction in factions %}
-            <th>{{ faction.value }}</th>
+    <div class="table-wrap" id="spreadsheet" style="display:none;">
+        <table class ="spreadsheet">
+            <tr>
+                <th>Name</th>
+                {% for faction in factions %}
+                <th>{{ faction.value }}</th>
+                {% endfor %}
+                <th>Total</th>
+            </tr>
+            {% for player, victories in wins.items() %}
+            <tr>
+                <td>{{ player }}</td>
+                {% for faction in factions %}
+                <td>{{ victories.count(faction) }}</td>
+                {% endfor %}
+                <td>{{ wins[player]|length }}</td>
+            </tr>
             {% endfor %}
-            <th>Total</th>
-        </tr>
-        {% for player, victories in wins.items() %}
-        <tr>
-            <td>{{ player }}</td>
-            {% for faction in factions %}
-            <td>{{ victories.count(faction) }}</td>
-            {% endfor %}
-            <td>{{ wins[player]|length }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+        </table>
+    </div>
 
     <ul class="scoreboard" id="scoreboard">
         {% for player, victories in wins.items() %}

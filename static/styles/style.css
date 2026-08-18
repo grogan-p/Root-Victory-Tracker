@@ -185,6 +185,12 @@ input[type="submit"]:hover {
 }
 
 
+.table-wrap {
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
 th, td {
     border: 1px solid rgb(13, 66, 90);
     padding: 0.5rem;
@@ -204,4 +210,20 @@ th, td {
     gap: 5px;
 
     cursor: pointer;
+}
+
+@media (max-width: 700px) {
+    main {
+        padding: 4.5rem 0.75rem 1.5rem;
+    }
+
+    th, td {
+        padding: 0.35rem 0.5rem;
+        text-align: center;
+    }
+
+    .spreadsheet tr:first-child th:not(:first-child):not(:last-child) {
+        writing-mode: vertical-rl;
+        white-space: nowrap;
+    }
 }
