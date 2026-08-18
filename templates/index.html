@@ -17,7 +17,9 @@
   <a href="#" class="sidebar-item">Create new group</a>
 </div>
 
-<button class="menu-button" onclick="open_sidebar()">☰</button>
+<button class="menu-button" id ="menu-button" onclick="open_sidebar()">☰</button>
+
+<button class="mode-button" id ="mode-button" onclick="change_mode()">Scoreboard Mode</button>
 
 <script>
 function open_sidebar() {
@@ -27,11 +29,47 @@ function open_sidebar() {
 function close_sidebar() {
   document.getElementById("sidebar").style.display = "none";
 }
+
+function change_mode() {
+    const scoreboard = document.getElementById("scoreboard");
+    const spreadsheet = document.getElementById("spreadsheet");
+    const modeButton = document.getElementById("mode-button");
+
+    if (spreadsheet.style.display === "none") {
+        scoreboard.style.display = "none";
+        spreadsheet.style.display = "flex";
+        modeButton.textContent = "Scoreboard Mode";
+    } else {
+        scoreboard.style.display = "flex";
+        spreadsheet.style.display = "none";
+        modeButton.textContent = "Spreadsheet Mode";
+    }
+}
 </script>
 
  <main>
     <h1>Root Scoreboard</h1>
-    <ul class="scoreboard">
+
+    <table class ="spreadsheet" id="spreadsheet" style="display:none;">
+        <tr>
+            <th>Name</th>
+            {% for faction in factions %}
+            <th>{{ faction.value }}</th>
+            {% endfor %}
+            <th>Total</th>
+        </tr>
+        {% for player, victories in wins.items() %}
+        <tr>
+            <td>{{ player }}</td>
+            {% for faction in factions %}
+            <td>{{ victories.count(faction) }}</td>
+            {% endfor %}
+            <td>{{ wins[player]|length }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <ul class="scoreboard" id="scoreboard">
         {% for player, victories in wins.items() %}
         <li>
             <span class="player">{{ player }}</span>

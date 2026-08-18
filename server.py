@@ -89,3 +89,6 @@ def index() -> str | Response:
 
 if __name__ == "__main__":
     serve(app, host="0.0.0.0", port=2000)
+
+
+#taskkill /f /im python.exe     
