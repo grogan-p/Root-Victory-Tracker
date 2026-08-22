@@ -10,7 +10,7 @@
         "BATS",
         "WOODLAND",
         "BATS",
-        "FROGS"
+        "SKUNKS"
     ],
     "Patrick": [
         "WOODLAND",
@@ -27,7 +27,7 @@
         "BATS",
         "FROGS"
     ],
-    "Matthew": [
+    "Danter": [
         "LIZARDS",
         "RIVERFOLK",
         "BATS"
@@ -41,5 +41,10 @@
     "Max": [
         "DUCHY"
     ],
-    "Nick": []
+    "Morrison": [
+        "EYRIE"
+    ],
+    "Nick": [
+        "EYRIE"
+    ]
 }
