@@ -4,6 +4,11 @@
 4. Correlate a faction with an image - Done
 5. Make player wins only display faction image - Done
 6. Allow easy updating of wins - Done
-7. Allow players to be changed
-8. Other stats (must track)
-9. Spreadsheet mode - Done
+7. Spreadsheet mode - Done
+8. Allow for multiple groups - Done
+9. Extra row for spreadsheet mode
+10. Order row of player by wins - Done
+11. Other stats (must track)
+12. Unique password per group
+13. Push to github every time a win is added
+14. Custom group creation

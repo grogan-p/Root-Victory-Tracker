@@ -12,8 +12,9 @@
 
 <div class="sidebar" style="display:none" id="sidebar">
   <button onclick="close_sidebar()" class="w3-bar-item w3-large">Close&times;</button>
-  <a href="#" class="sidebar-item">Group 1</a>
-  <a href="#" class="sidebar-item">Group 2</a>
+  {% for name in group_names %}
+  <a href="{{ url_for('index', group=name) }}" class="sidebar-item{% if name == group %} active{% endif %}">{{ name }}</a>
+  {% endfor %}
   <a href="#" class="sidebar-item">Create new group</a>
 </div>
 
@@ -48,7 +49,7 @@ function change_mode() {
 </script>
 
  <main>
-    <h1>Root Scoreboard</h1>
+    <h1>Root Scoreboard - {{ group }}</h1>
 
     <div class="table-wrap" id="spreadsheet" style="display:none;">
         <table class ="spreadsheet">
@@ -67,7 +68,7 @@ function change_mode() {
                 {% endfor %}
                 <td>{{ wins[player]|length }}</td>
             </tr>
-            {% endfor %}
+            {% endfor %}            
         </table>
     </div>
 

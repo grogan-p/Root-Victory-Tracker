@@ -1,50 +1,72 @@
 {
-    "Colin": [
-        "EYRIE",
-        "LIZARDS",
-        "EYRIE",
-        "DUCHY",
-        "LIZARDS",
-        "LIZARDS",
-        "DUCHY",
-        "BATS",
-        "WOODLAND",
-        "BATS",
-        "SKUNKS"
-    ],
-    "Patrick": [
-        "WOODLAND",
-        "EYRIE",
-        "FROGS",
-        "RATS",
-        "WOODLAND"
-    ],
-    "Dan": [
-        "CORVIDS",
-        "RIVERFOLK",
-        "VAGABOND",
-        "BADGERS",
-        "BATS",
-        "FROGS"
-    ],
-    "Danter": [
-        "LIZARDS",
-        "RIVERFOLK",
-        "BATS"
-    ],  
-    "Harry": [
-        "DUCHY"
-    ],
-    "Sam": [
-        "CORVIDS"
-    ],
-    "Max": [
-        "DUCHY"
-    ],
-    "Morrison": [
-        "EYRIE"
-    ],
-    "Nick": [
-        "EYRIE"
-    ]
+    "Group 1": {
+        "Colin": [
+            "EYRIE",
+            "LIZARDS",
+            "EYRIE",
+            "DUCHY",
+            "LIZARDS",
+            "LIZARDS",
+            "DUCHY",
+            "BATS",
+            "WOODLAND",
+            "BATS",
+            "SKUNKS"
+        ],
+        "Dan": [
+            "CORVIDS",
+            "RIVERFOLK",
+            "VAGABOND",
+            "BADGERS",
+            "BATS",
+            "FROGS"
+        ],
+        "Patrick": [
+            "WOODLAND",
+            "EYRIE",
+            "FROGS",
+            "RATS",
+            "WOODLAND"
+        ],
+        "Danter": [
+            "LIZARDS",
+            "RIVERFOLK",
+            "BATS"
+        ],
+        "Harry": [
+            "DUCHY",
+            "BATS"
+        ],
+        "Sam": [
+            "CORVIDS"
+        ],
+        "Max": [
+            "DUCHY"
+        ],
+        "Morrison": [
+            "EYRIE"
+        ],
+        "Nick": [
+            "EYRIE",
+            "SKUNKS"
+        ]
+    },
+    "Group 2" : {
+        "Ben" : [
+            "RATS"
+        ],
+        "Zoe" : [
+            "WOODLAND"
+        ],
+        "Patrick" : [  
+
+        ],
+        "Jaden" : [
+
+        ],
+
+        "Drew" : [
+
+        ]
+    }
 }
