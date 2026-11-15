@@ -51,6 +51,7 @@
             "SKUNKS"
         ]
     },
+    
     "Group 2" : {
         "Ben" : [
             "RATS"
@@ -61,11 +62,14 @@
         "Patrick" : [  
 
         ],
-        "Jaden" : [
+        "Jaden" : ["SKUNKS"
 
         ],
 
         "Drew" : [
+
+        ],
+        "Spiros" : ["SKUNKS"
 
         ]
     }

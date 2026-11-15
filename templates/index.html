@@ -11,7 +11,7 @@
 <body>
 
 <div class="sidebar" style="display:none" id="sidebar">
-  <button onclick="close_sidebar()" class="w3-bar-item w3-large">Close&times;</button>
+  <button onclick="close_sidebar()">Close&times;</button>
   {% for name in group_names %}
   <a href="{{ url_for('index', group=name) }}" class="sidebar-item{% if name == group %} active{% endif %}">{{ name }}</a>
   {% endfor %}

@@ -10,5 +10,7 @@
 10. Order row of player by wins - Done
 11. Other stats (must track)
 12. Unique password per group
-13. Push to github every time a win is added
-14. Custom group creation
+13. Icon for each name
+14. Unique name if most wins
+15. Push to github every time a win is added
+16. Custom group creation
