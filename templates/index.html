@@ -75,7 +75,7 @@ function change_mode() {
     <ul class="scoreboard" id="scoreboard">
         {% for player, victories in wins.items() %}
         <li>
-            <span class="player">{{ player }}</span>
+            <span class="player{% if top_wins and victories|length == top_wins %} leader{% endif %}">{{ player }}</span>
             <span class="victories">
                 {% for faction in victories %}
                 <img src="{{ url_for('static', filename='styles/images/' ~ faction.name ~ '.png') }}"

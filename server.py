@@ -3,7 +3,7 @@ import json
 import tempfile
 from flask import Flask, render_template, request, Response as FlaskResponse, redirect, url_for
 from werkzeug.wrappers import Response
-from waitress import serve
+from waitress import serve  # type: ignore[import-untyped]
 from dotenv import load_dotenv
 from enum import Enum
 
@@ -31,21 +31,6 @@ class Faction(Enum):
     SKUNKS     = "Knaves of the Deepwood"
 
 
-DEFAULT_WINS = {
-    "Group 1": {
-        "Colin" : [Faction.EYRIE, Faction.LIZARDS, Faction.EYRIE, Faction.DUCHY, Faction.LIZARDS, Faction.LIZARDS, Faction.DUCHY, Faction.BATS, Faction.WOODLAND],
-        "Patrick" : [Faction.WOODLAND, Faction.EYRIE, Faction.FROGS, Faction.RATS],
-        "Dan" : [Faction.CORVIDS, Faction.RIVERFOLK, Faction.VAGABOND, Faction.BADGERS, Faction.FROGS],
-        "Matthew" : [Faction.LIZARDS, Faction.RIVERFOLK],
-        "Harry" : [Faction.DUCHY],
-        "Sam" : [Faction.CORVIDS],
-        "Max" : [Faction.DUCHY],
-        "Nick" : [Faction.EYRIE],
-        "Morrison" : [Faction.EYRIE]
-    }
-}
-
-
 def save_wins(wins: dict[str, dict[str, list[Faction]]]) -> None:
     """Write the scoreboard to disk, storing factions by name."""
 
@@ -63,9 +48,6 @@ def save_wins(wins: dict[str, dict[str, list[Faction]]]) -> None:
 
 def load_wins() -> dict[str, dict[str, list[Faction]]]:
     """Read the scoreboard from disk, seeding the file from DEFAULT_WINS on first run."""
-
-    if not os.path.exists(WINS_FILE):
-        save_wins(DEFAULT_WINS)
 
     with open(WINS_FILE, encoding="utf-8") as file:
         raw = json.load(file)
@@ -90,9 +72,10 @@ def index() -> str | Response:
 
     wins[group] = dict(sorted(wins[group].items(), key=lambda kv: len(kv[1]), reverse=True))
     # Sorting the players by most wins
-
+    top_wins = max((len(v) for v in wins[group].values()), default=0)
+    
     if request.method == "GET":
-        return render_template('index.html', wins=wins[group], group=group, group_names=wins.keys(), factions=Faction)
+        return render_template('index.html', wins=wins[group], group=group, group_names=wins.keys(), factions=Faction, top_wins=top_wins)
 
     if request.method == "POST":
         if request.form["pwd"] == os.getenv("ADMIN_PWD"):
@@ -101,7 +84,7 @@ def index() -> str | Response:
             )
             save_wins(wins)
             return redirect(url_for("index", group=group))
-        return render_template('index.html', wins=wins[group], group=group, group_names=wins.keys(), factions=Faction)
+        return render_template('index.html', wins=wins[group], group=group, group_names=wins.keys(), factions=Faction, top_wins=top_wins)
 
 if __name__ == "__main__":
     serve(app, host="0.0.0.0", port=2000)
