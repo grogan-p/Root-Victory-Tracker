@@ -12,5 +12,5 @@
 12. Unique password per group
 13. Icon for each name
 14. Unique name if most wins
-15. Push to github every time a win is added
+15. Push to github every time a win is added (github actions?)
 16. Custom group creation
