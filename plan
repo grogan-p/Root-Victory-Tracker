@@ -8,9 +8,9 @@
 8. Allow for multiple groups - Done
 9. Extra row for spreadsheet mode
 10. Order row of player by wins - Done
-11. Other stats (must track)
-12. Unique password per group
-13. Icon for each name
-14. Unique name if most wins - Done
-16. Push to github every time a win is added (github actions?)
-17. Custom group creation
+11. Unique password per group
+12. Icon for each name (profile picture)
+13. Unique name if most wins - Done
+14. Push to github every time a win is added (github actions?)
+15. Custom group creation
+16. Other stats (must track)

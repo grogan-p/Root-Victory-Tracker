@@ -13,7 +13,7 @@
 <div class="sidebar" style="display:none" id="sidebar">
   <button onclick="close_sidebar()">Close&times;</button>
   {% for name in group_names %}
-  <a href="{{ url_for('index', group=name) }}" class="sidebar-item{% if name == group %} active{% endif %}">{{ name }}</a>
+  <a href="{{ url_for('index', group=name) }}" class="sidebar-item">{{ name }}</a>
   {% endfor %}
   <a href="#" class="sidebar-item">Create new group</a>
 </div>
@@ -68,7 +68,15 @@ function change_mode() {
                 {% endfor %}
                 <td>{{ wins[player]|length }}</td>
             </tr>
-            {% endfor %}            
+            {% endfor %}
+            {% set all_victories = wins.values()|sum(start=[]) %}
+            <tr class="totals">
+                <th>Total</th>
+                {% for faction in factions %}
+                <th>{{ all_victories.count(faction) }}</th>
+                {% endfor %}
+                <th>{{ all_victories|length }}</th>
+            </tr>
         </table>
     </div>
 

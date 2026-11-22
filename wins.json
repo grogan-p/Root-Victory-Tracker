@@ -59,17 +59,21 @@
         "Zoe" : [
             "WOODLAND"
         ],
-        "Patrick" : [  
+        "Patrick" : [
+            "FROGS"
+                      
 
         ],
-        "Jaden" : ["SKUNKS"
+        "Jaden" : [
+            "SKUNKS"
 
         ],
 
         "Drew" : [
 
         ],
-        "Spiros" : ["SKUNKS"
+        "Spiros" : [
+            "SKUNKS"
 
         ]
     }
